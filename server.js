@@ -2,6 +2,8 @@ require('./.env.validate.js');
 
 const Koa = require('koa');
 const render = require('koa-ejs');
+const serve = require('koa-static');
+const mount = require('koa-mount');
 const path = require('path');
 
 const logger = require('./libs/Logger')(module);
@@ -14,6 +16,7 @@ render(app, {
   cache: false,
   debug: false
 });
+app.use(mount('/static', serve(path.join(process.cwd(), '/public/static'), { defer: true })));
 require('./routes')(app);
 
 if (!module.parent) {
