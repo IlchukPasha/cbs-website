@@ -12,7 +12,7 @@ const app = new Koa();
 render(app, {
   root: path.join(__dirname, 'resources/views'),
   layout: false,
-  viewExt: 'html',
+  viewExt: 'ejs',
   cache: false,
   debug: false
 });

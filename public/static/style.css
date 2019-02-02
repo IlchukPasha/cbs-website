@@ -129,7 +129,7 @@ img {
 
 /* :: 3.3.0 Section Padding */
 .section-padding-100 {
-  padding-top: 100px;
+  padding-top: 35px;
   padding-bottom: 100px; }
 
 .section-padding-100-0 {
@@ -522,10 +522,10 @@ img {
     margin-bottom: 30px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .about-us-area .about-thumbnail {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     @media only screen and (max-width: 767px) {
       .about-us-area .about-thumbnail {
-        margin-top: 100px; } }
+        margin-top: 0px; } }
     .about-us-area .about-thumbnail img {
       border-radius: 5px; }
 
