@@ -1,0 +1,27 @@
+version: "2"
+services:
+  adminer:
+    image: asergey/adminer:latest
+    container_name: cbs-website.adminer
+    environment:
+      DB_HOST: mysql
+      DB_USER: cbs_website
+      DB_PASS: cbs_website
+    ports:
+      - 3308:80
+    links:
+      - mysql
+    logging:
+      driver: none
+  mysql:
+    image: mysql:5.7.18
+    container_name: cbs-website.mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: cbs_website
+      MYSQL_USER: cbs_website
+      MYSQL_PASSWORD: cbs_website
+      MYSQL_ROOT_PASSWORD: eRV6Hspr
+    logging:
+      driver: none
