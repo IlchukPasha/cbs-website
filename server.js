@@ -6,19 +6,7 @@ const serve = require('koa-static');
 const mount = require('koa-mount');
 const path = require('path');
 
-// const { User } = require('./models');
-
 require('./core/db');
-
-// async function main() {
-//   // Read all rows from the db.
-//   const users = await User.query();
-//   console.log(users);
-// }
-//
-// main().then(() => console.log('here'));
-
-const logger = require('./libs/Logger')(module);
 
 const app = new Koa();
 render(app, {
@@ -33,7 +21,7 @@ require('./routes')(app);
 
 if (!module.parent) {
   app.listen(process.env.PORT, () => {
-    logger.info(`App running on port: ${process.env.PORT}`);
+    console.log(`App running on port: ${process.env.PORT}`);
   });
 }
 

@@ -16,7 +16,7 @@ exports.up = async knex => {
     t.string('subject', 100).notNullable().comment('It is a sermon theme');
     t.string('speaker', 100).notNullable().comment('Speaker name');
     t.text('description').notNullable();
-    t.dateTime('date').notNullable();
+    t.date('date').notNullable();
     t.timestamps();
     t.collate('utf8_general_ci');
   });
@@ -27,7 +27,7 @@ exports.up = async knex => {
     t.string('address').notNullable();
     t.string('short_description', 150).notNullable();
     t.text('description').notNullable();
-    t.dateTime('date').notNullable();
+    t.date('date').notNullable();
     t.time('started_at').comment('Example: 10:00').notNullable();
     t.time('finished_at').comment('Example: 15:00').notNullable();
     t.timestamps();
