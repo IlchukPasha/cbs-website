@@ -18,7 +18,10 @@ const config = {
     }
   },
   app: {
-
+    roles: {
+      user: 'user',
+      admin: 'admin'
+    }
   }
 };
 module.exports = config;

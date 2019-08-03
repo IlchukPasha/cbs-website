@@ -1,5 +1,5 @@
 const Validator = require('validatorjs');
-const { ValidationError } = require('./../core/exceptions');
+const { ValidationError } = require('./exceptions');
 
 module.exports = (data, rules, messages = []) => new Promise((resolve, reject) => {
   const validator = new Validator(data, rules, messages);

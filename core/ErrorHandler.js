@@ -21,7 +21,6 @@ const ErrorHandler = async (ctx, next) => {
             message,
             statusCode,
             validationMessages: error.validationMessages.errors
-            // errors: err.validation_errors.errors
           }
         };
         ctx.status = statusCode;

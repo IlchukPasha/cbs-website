@@ -3,10 +3,11 @@ exports.up = async knex => {
     t.increments();
     t.string('email', 100).notNullable().unique();
     t.string('password').notNullable();
-    t.string('first_name', 100).notNullable();
-    t.string('last_name', 100).notNullable();
-    t.string('role').notNullable().comment('admin, user, moderator');
-    t.timestamps();
+    t.string('firstName', 100).notNullable();
+    t.string('lastName', 100).notNullable();
+    t.string('role').notNullable().default('user').comment('admin, user, moderator');
+    t.timestamp('createdAt').nullable().defaultTo(null);
+    t.timestamp('updatedAt').nullable().defaultTo(null);
     t.collate('utf8_general_ci');
   });
 
@@ -17,7 +18,8 @@ exports.up = async knex => {
     t.string('speaker', 100).notNullable().comment('Speaker name');
     t.text('description').notNullable();
     t.date('date').notNullable();
-    t.timestamps();
+    t.timestamp('createdAt').nullable().defaultTo(null);
+    t.timestamp('updatedAt').nullable().defaultTo(null);
     t.collate('utf8_general_ci');
   });
 
@@ -25,12 +27,13 @@ exports.up = async knex => {
     t.increments();
     t.string('title', 100).notNullable();
     t.string('address').notNullable();
-    t.string('short_description', 150).notNullable();
+    t.string('shortDescription', 150).notNullable();
     t.text('description').notNullable();
     t.date('date').notNullable();
-    t.time('started_at').comment('Example: 10:00').notNullable();
-    t.time('finished_at').comment('Example: 15:00').notNullable();
-    t.timestamps();
+    t.time('startedAt').comment('Example: 10:00').notNullable();
+    t.time('finishedAt').comment('Example: 15:00').notNullable();
+    t.timestamp('createdAt').nullable().defaultTo(null);
+    t.timestamp('updatedAt').nullable().defaultTo(null);
     t.collate('utf8_general_ci');
   });
 };
