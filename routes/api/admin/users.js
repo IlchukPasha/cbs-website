@@ -7,7 +7,12 @@ const router = new Router({ prefix: '/api/admin/users' });
 
 const handler = {
   async list(ctx) {
-    ctx.body = await User.query();
+    await validate(ctx.query, {
+      page: 'numeric|min:1',
+      perPage: 'numeric|min:5'
+    });
+    const { page = 1, perPage = 5 } = ctx.query;
+    ctx.body = await User.query().page(page - 1, perPage);
   },
   async byId(ctx) {
     await validate(ctx.params, {
@@ -53,7 +58,7 @@ const handler = {
 
     ctx.body = await User
       .query()
-      .patchAndFetchById(userId, {email, password, firstName, lastName});
+      .patchAndFetchById(userId, { email, password, firstName, lastName });
   }
 };
 
