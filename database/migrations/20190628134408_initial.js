@@ -30,8 +30,8 @@ exports.up = async knex => {
     t.string('shortDescription', 150).notNullable();
     t.text('description').notNullable();
     t.date('date').notNullable();
-    t.time('startedAt').comment('Example: 10:00').notNullable();
-    t.time('finishedAt').comment('Example: 15:00').notNullable();
+    t.time('startedAt').comment('Example: 10:00:00').notNullable();
+    t.time('finishedAt').comment('Example: 15:00:00').notNullable();
     t.timestamp('createdAt').nullable().defaultTo(null);
     t.timestamp('updatedAt').nullable().defaultTo(null);
     t.collate('utf8_general_ci');

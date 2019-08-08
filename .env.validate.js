@@ -8,6 +8,7 @@ const result = new Validator(process.env, {
   NODE_ENV: 'required|in:development,testing,production',
   DB_QUERIES_LOG: 'required|boolean',
   PORT: 'required|numeric',
+  JWT_SECRET: 'required|string',
   DB_HOST: 'required|string',
   DB_USER: 'required|string',
   DB_PASS: 'required|string',
