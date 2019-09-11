@@ -36,7 +36,7 @@ const handler = {
 
     const sermon = await Sermon
       .query()
-      .insert({ title, subject, speaker, text, date });
+      .insert({ title, subject, speaker, description: text, date });
 
     ctx.status = 201;
     ctx.body = sermon;

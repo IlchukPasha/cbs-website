@@ -28,8 +28,8 @@ const handler = {
       shortDescription: 'required|string|min:1|max:150',
       description: 'required|string|min:10|max:5000',
       date: 'required|regex:/^\\d{4}-\\d{2}-\\d{2}$/|date',
-      startedAt: 'required|regex:/^\\d{2}:\\d{2}:\\d{2}$/|date',
-      finishedAt: 'required|regex:/^\\d{2}:\\d{2}:\\d{2}$/|date'
+      startedAt: 'required|regex:/^\\d{2}:\\d{2}$/',
+      finishedAt: 'required|regex:/^\\d{2}:\\d{2}$/'
     });
 
     const {
