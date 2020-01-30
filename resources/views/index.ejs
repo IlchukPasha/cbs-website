@@ -129,7 +129,7 @@
         <!-- Section Heading -->
         <div class="col-12">
           <div class="section-heading">
-            <h2>Останні служіння</h2>
+            <h2>Проповіді</h2>
             <p>Наші служіння проводяться у вівторок, пятницю та неділю кожного тижня.
             </p>
           </div>
@@ -137,143 +137,52 @@
       </div>
 
       <div class="row justify-content-center">
-        <!-- Single Latest Sermons -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-latest-sermons mb-100">
-            <div class="sermons-thumbnail">
-              <!-- <img src="static/img/bg-img/7.jpg" alt=""> -->
-              <img src="static/img/bg-img/19.jpg" alt="">
-              <!-- Date -->
-              <div class="sermons-date">
-                <h6>
-                  <span>3</span>Бер</h6>
+        <% lastSermons.forEach(function(sermon){ %>
+          <!-- Single Latest Sermons -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="single-latest-sermons mb-100">
+              <div class="sermons-thumbnail">
+                <!-- <img src="static/img/bg-img/7.jpg" alt=""> -->
+                <img src="static/img/bg-img/19.jpg" alt="">
+                <!-- Date -->
+                <div class="sermons-date">
+                  <h6><span><%= sermon.day %></span><%= sermon.month %></h6>
+                </div>
               </div>
-            </div>
-            <div class="sermons-content">
-              <!-- <div class="sermons-cata">
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Video">
-                  <i class="fa fa-video-camera" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Audio">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Docs">
-                  <i class="fa fa-file" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Download">
-                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                </a>
-              </div> -->
-              <h4>Життя християнина</h4>
-              <div class="sermons-meta-data">
-                <p>
-                  <i class="fa fa-user" aria-hidden="true"></i> Проповідники:
-                  <span>Віталій Зозуля</span>
-                </p>
-                <p>
-                  <i class="fa fa-tag" aria-hidden="true"></i> Теми:
-                  <span>Молитва, прощення</span>
-                </p>
-                <p>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i> 3 Березня
-                  <span>10:00 - 12:00</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single Latest Sermons -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-latest-sermons mb-100">
-            <div class="sermons-thumbnail">
-              <!-- <img src="static/img/bg-img/8.jpg" alt=""> -->
-              <img src="static/img/bg-img/19.jpg" alt="">
-              <!-- Date -->
-              <div class="sermons-date">
-                <h6>
-                  <span>5</span>Квіт</h6>
-              </div>
-            </div>
-            <div class="sermons-content">
-              <!-- <div class="sermons-cata">
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Video">
-                  <i class="fa fa-video-camera" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Audio">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Docs">
-                  <i class="fa fa-file" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Download">
-                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                </a>
-              </div> -->
-              <h4>Що потрібно для спасіння</h4>
-              <div class="sermons-meta-data">
-                <p>
-                  <i class="fa fa-user" aria-hidden="true"></i> Проповідники:
-                  <span>Олександер Попчук</span>
-                </p>
-                <p>
-                  <i class="fa fa-tag" aria-hidden="true"></i> Теми:
-                  <span>Спасіння</span>
-                </p>
-                <p>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i> 5 Квітня
-                  <span>10:00 - 12:00</span>
-                </p>
+              <div class="sermons-content">
+                <!-- <div class="sermons-cata">
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Video">
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Audio">
+                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Docs">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Download">
+                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  </a>
+                </div> -->
+                <h4><%= sermon.title %></h4>
+                <div class="sermons-meta-data">
+                  <p>
+                    <i class="fa fa-user" aria-hidden="true"></i> Проповідник:
+                    <span><%= sermon.speaker %></span>
+                  </p>
+                  <p>
+                    <i class="fa fa-tag" aria-hidden="true"></i> Тема:
+                    <span><%= sermon.subject %></span>
+                  </p>
+                  <!-- <p>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> 3 Березня
+                    <span>10:00 - 12:00</span>
+                  </p> -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Single Latest Sermons -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-latest-sermons mb-100">
-            <div class="sermons-thumbnail">
-              <!-- <img src="static/img/bg-img/9.jpg" alt=""> -->
-              <img src="static/img/bg-img/19.jpg" alt="">
-              <!-- Date -->
-              <div class="sermons-date">
-                <h6>
-                  <span>10</span>Трав</h6>
-              </div>
-            </div>
-            <div class="sermons-content">
-              <!-- <div class="sermons-cata">
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Video">
-                  <i class="fa fa-video-camera" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Audio">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Docs">
-                  <i class="fa fa-file" aria-hidden="true"></i>
-                </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Download">
-                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                </a>
-              </div> -->
-              <h4>Другий прихід Христа</h4>
-              <div class="sermons-meta-data">
-                <p>
-                  <i class="fa fa-user" aria-hidden="true"></i> Проповідники:
-                  <span>Сергій Субот</span>
-                </p>
-                <p>
-                  <i class="fa fa-tag" aria-hidden="true"></i> Теми:
-                  <span>Христос, прихід</span>
-                </p>
-                <p>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i> 10 травня
-                  <span>10:00 - 12:00</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% }); %>
       </div>
     </div>
   </section>

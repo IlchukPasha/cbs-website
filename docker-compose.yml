@@ -1,18 +1,14 @@
 version: "2"
 services:
   adminer:
-    image: asergey/adminer:latest
+    image: adminer:latest
     container_name: cbs-website.adminer
     environment:
-      DB_HOST: mysql
-      DB_USER: cbs_website
-      DB_PASS: cbs_website
+      ADMINER_DEFAULT_SERVER: mysql
     ports:
-      - 3308:80
+      - 3308:8080
     links:
       - mysql
-    logging:
-      driver: none
   mysql:
     image: mysql:5.7.18
     container_name: cbs-website.mysql

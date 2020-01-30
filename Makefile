@@ -25,8 +25,8 @@ down:
 # Refresh current DB
 db-refresh:
 	@npx knex migrate:rollback
-    @npx knex migrate:latest
-    @npx knex seed:run
+	@npx knex migrate:latest
+	@npx knex seed:run
 
 db-up:
 	@npx knex migrate:latest

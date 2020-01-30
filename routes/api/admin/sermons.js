@@ -1,7 +1,8 @@
 const Router = require('koa-router');
 
-const { Sermon } = require('./../../../models');
 const validate = require('./../../../core/Validator');
+const { Sermon } = require('./../../../models');
+const { authenticated } = require('./../../../middlewares');
 
 const router = new Router({ prefix: '/api/admin/sermons' });
 
@@ -75,6 +76,7 @@ const handler = {
   }
 };
 
+router.use(authenticated);
 router.get('/', handler.list);
 router.get('/:sermonId', handler.byId);
 router.post('/', handler.create);

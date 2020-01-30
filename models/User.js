@@ -15,7 +15,7 @@ class User extends Password(visibilityPlugin(Model)) {
 
   async $beforeInsert(queryContext) {
     await super.$beforeInsert(queryContext);
-    if(!this.role){
+    if (!this.role) {
       this.role = roles.user;
     }
     this.createdAt = new Date();

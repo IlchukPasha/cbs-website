@@ -1,7 +1,8 @@
 const Router = require('koa-router');
 
-const { Event } = require('./../../../models');
 const validate = require('./../../../core/Validator');
+const { Event } = require('./../../../models');
+const { authenticated } = require('./../../../middlewares');
 
 const router = new Router({ prefix: '/api/admin/events' });
 
@@ -79,6 +80,7 @@ const handler = {
   }
 };
 
+router.use(authenticated);
 router.get('/', handler.list);
 router.get('/:eventId', handler.byId);
 router.post('/', handler.create);
