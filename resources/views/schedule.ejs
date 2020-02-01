@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {title: 'Сторінка про нас'}); %>
+</head>
+
+<body>
+  <!-- ##### Preloader ##### -->
+  <div class="preloader d-flex align-items-center justify-content-center">
+    <!-- Line -->
+    <div class="line-preloader"></div>
+  </div>
+
+  <!-- ##### Header Area Start ##### -->
+  <header class="header-area">
+    <%- include('../partials/header') %>
+  </header>
+  <!-- ##### Header Area End ##### -->
+
+  <!-- ##### Breadcrumb Area Start ##### -->
+  <div class="breadcrumb-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/">Головна</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Розкклад служінь</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+
+  <!-- ##### About Us Area Start ##### -->
+  <div class="about-us-area about-page section-padding-100">
+    <div class="container">
+      <div class="row about-content justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="about-us-content mb-100">
+            <img src="static/img/bg-img/rozklad-slyzin.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ##### About Us Area End ##### -->
+
+  <!-- ##### Footer Area Start ##### -->
+  <footer class="footer-area">
+    <%- include('../partials/footer') %>
+  </footer>
+  <!-- ##### Footer Area End ##### -->
+
+  <%- include('../partials/scripts') %>
+</body>
+
+</html>

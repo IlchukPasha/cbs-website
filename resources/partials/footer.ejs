@@ -6,8 +6,8 @@
       <!-- Single Footer Widget -->
       <div class="col-12 col-sm-6 col-lg-3">
         <div class="single-footer-widget mb-70">
-          <a href="#" class="footer-logo">
-            <img src="static/img/core-img/logo2.png" alt="">
+          <a href="/" class="footer-logo">
+            <img src="/static/img/core-img/logo2.png" alt="">
           </a>
           <p>Церква Божого Спасіння</p>
         </div>
@@ -43,16 +43,16 @@
 
           <!-- Single Latest News -->
           <div class="single-latest-news">
-            <a href="#">Polish schools in UK warned</a>
+            <a href="/events/<%= lastEvents[0].id %>"><%= lastEvents[0].title %></a>
             <p>
-              <i class="fa fa-calendar" aria-hidden="true"></i> November 11, 2017</p>
+              <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[0].date %></p>
           </div>
 
           <!-- Single Latest News -->
           <div class="single-latest-news">
-            <a href="#">University league tables 2018</a>
+            <a href="/events/<%= lastEvents[1].id %>"><%= lastEvents[1].title %></a>
             <p>
-              <i class="fa fa-calendar" aria-hidden="true"></i> November 11, 2017</p>
+              <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[1].date %></p>
           </div>
 
         </div>
@@ -91,9 +91,9 @@
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> All rights reserved <span style="display:none;" >| This template is made with
+            <script>document.write(new Date().getFullYear());</script> All rights reserved <span>| This template is made with
             <i class="fa fa-heart-o" aria-hidden="true"></i> by
-            <a href="https://colorlib.com" target="_blank">Colorlib</a></span>
+            <a href="https://colorlib.com" target="_blank">Colorlib</a></span
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
