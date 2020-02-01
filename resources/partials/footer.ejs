@@ -41,19 +41,23 @@
         <div class="single-footer-widget mb-70">
           <h5 class="widget-title">Останні новини</h5>
 
-          <!-- Single Latest News -->
-          <div class="single-latest-news">
-            <a href="/events/<%= lastEvents[0].id %>"><%= lastEvents[0].title %></a>
-            <p>
-              <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[0].date %></p>
-          </div>
+          <% if (lastEvents[0]) { %>
+            <!-- Single Latest News -->
+            <div class="single-latest-news">
+              <a href="/events/<%= lastEvents[0].id %>"><%= lastEvents[0].title %></a>
+              <p>
+                <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[0].date %></p>
+            </div>
+          <% } %>
 
-          <!-- Single Latest News -->
-          <div class="single-latest-news">
-            <a href="/events/<%= lastEvents[1].id %>"><%= lastEvents[1].title %></a>
-            <p>
-              <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[1].date %></p>
-          </div>
+          <% if (lastEvents[1]) { %>
+            <!-- Single Latest News -->
+            <div class="single-latest-news">
+              <a href="/events/<%= lastEvents[1].id %>"><%= lastEvents[1].title %></a>
+              <p>
+                <i class="fa fa-calendar" aria-hidden="true"></i> <%= lastEvents[1].date %></p>
+            </div>
+          <% } %>
 
         </div>
       </div>

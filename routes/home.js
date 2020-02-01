@@ -1,8 +1,9 @@
 const Router = require('koa-router');
-const { capitalize } = require('lodash');
+const { capitalize, range } = require('lodash');
 const { format } = require('date-fns');
 const { uk } = require('date-fns/locale');
 
+const { formatEventTime, formatEventDate } = require('./../core/helper');
 const { Event, Sermon } = require('./../models');
 
 const router = new Router();
@@ -28,15 +29,42 @@ const handler = {
     const { lastEvents } = ctx.state;
     await ctx.render('contact', { lastEvents });
   },
-  // async eventsPage(ctx) {
-  //   await ctx.render('events', {});
-  // },
-  // async sermonsPage(ctx) {
-  //   await ctx.render('sermons', {});
-  // },
-  // async blogPage(ctx) {
-  //   await ctx.render('blog', {});
-  // },
+  async eventsPage(ctx) {
+    const { lastEvents } = ctx.state;
+    const { page = 1, perPage = 5 } = ctx.query;
+
+    const events = await Event.query().page(page - 1, perPage);
+
+    if (events.results.length === 0) {
+      ctx.redirect('/events');
+      return;
+    }
+
+    events.results.forEach(event => {
+      event.startedAt = formatEventTime(event.startedAt);
+      event.finishedAt = formatEventTime(event.finishedAt);
+      event.date = formatEventDate(event.date);
+    });
+
+    await ctx.render('events', { events, currentPage: +page, range, lastEvents });
+  },
+  async sermonsPage(ctx) {
+    const { lastEvents } = ctx.state;
+    const { page = 1, perPage = 4 } = ctx.query;
+
+    const sermons = await Sermon.query().page(page - 1, perPage);
+
+    if (sermons.results.length === 0) {
+      ctx.redirect('/sermons');
+      return;
+    }
+
+    sermons.results.forEach(sermon => {
+      sermon.date = `${format(sermon.date, 'd MMM y', { locale: uk })}`;
+    });
+
+    await ctx.render('sermons', { sermons, currentPage: +page, range, lastEvents});
+  },
   async eventsDetailPage(ctx) {
     const { lastEvents } = ctx.state;
     const { id } = ctx.params;
@@ -61,7 +89,7 @@ const handler = {
       return;
     }
 
-    sermon.date = `${capitalize(format(sermon.date, 'd MMM y', { locale: uk }))}`;
+    sermon.date = `${format(sermon.date, 'd MMM y', { locale: uk })}`;
 
     await ctx.render('sermon', { sermon, lastEvents });
   },
@@ -75,13 +103,9 @@ async function eventsMw(ctx, next) {
   const lastEvents = await Event.query().orderBy('date', 'desc').limit(6);
 
   lastEvents.forEach(event => {
-    const startedAtArray = event.startedAt.split(':');
-    const finishedAtArray = event.finishedAt.split(':');
-
-    event.startedAt = `${startedAtArray[0]}:${startedAtArray[1]}`;
-    event.finishedAt = `${finishedAtArray[0]}:${finishedAtArray[1]}`;
-
-    event.date = format(event.date, 'd MMMM, y', { locale: uk });
+    event.startedAt = formatEventTime(event.startedAt);
+    event.finishedAt = formatEventTime(event.finishedAt);
+    event.date = formatEventDate(event.date);
   });
 
   ctx.state.lastEvents = lastEvents;
@@ -92,9 +116,8 @@ async function eventsMw(ctx, next) {
 router.get('/', eventsMw, handler.homePage);
 router.get('/about', eventsMw, handler.aboutPage);
 router.get('/contact', eventsMw, handler.contactPage);
-// router.get('/events', handler.eventsPage);
-// router.get('/sermons', handler.sermonsPage);
-// router.get('/blog', handler.blogPage);
+router.get('/events', eventsMw, handler.eventsPage);
+router.get('/sermons', eventsMw, handler.sermonsPage);
 router.get('/events/:id', eventsMw, handler.eventsDetailPage);
 router.get('/sermons/:id', eventsMw, handler.sermonsDetailPage);
 router.get('/schedule', eventsMw, handler.schedulePage);

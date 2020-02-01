@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {title: 'Сторінка проповідей'}); %>
+</head>
+
+<body>
+    <!-- ##### Preloader ##### -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <!-- Line -->
+        <div class="line-preloader"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+      <%- include('../partials/header') %>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Головна</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Сторінка проповідей</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Blog Post Area -->
+                <div class="col-12 col-lg-8">
+                    <div class="row">
+                      <% sermons.results.forEach((sermon) => { %>
+                        <!-- Single Blog Post Area -->
+                        <div class="col-12 col-md-6">
+                          <div class="single-blog-post mb-50">
+                              <div class="post-thumbnail">
+                                  <a href="/sermons/<%= sermon.id %>"><img src="static/img/bg-img/19.jpg" alt=""></a>
+                              </div>
+                              <div class="post-content">
+                                  <a href="/sermons/<%= sermon.id %>" class="post-title">
+                                      <h4><%= sermon.title %></h4>
+                                  </a>
+                                  <div class="post-meta d-flex">
+                                      <a href="#"><i class="fa fa-user" aria-hidden="true"></i> <%= sermon.speaker %></a>
+                                      <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> <%= sermon.date %></a>
+                                  </div>
+                                  <p class="post-excerpt"><%= sermon.description.slice(0, 100) %>...</p>
+                              </div>
+                          </div>
+                        </div>
+                      <% }); %>
+                    </div>
+
+                    <div class="pagination-area">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              <% range(1, Math.ceil(sermons.total / 4) + 1).forEach(page => { %>
+                                <% if (currentPage === page) { %>
+                                  <li class="page-item active"><a class="page-link" href="?page=<%= page %>&perPage=4"><%= page %></a></li>
+                                <% } else { %>
+                                  <li class="page-item"><a class="page-link" href="?page=<%= page %>&perPage=4"><%= page %></a></li>
+                                <% } %>
+                              <% }); %>
+                                <!-- <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li> -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Sidebar Area -->
+                <!-- <div class="col-12 col-lg-3">
+                    <div class="post-sidebar-area">
+
+                        <div class="single-widget-area">
+                            <div class="search-form">
+                                <form action="#" method="get">
+                                    <input type="search" name="search" placeholder="Search Here">
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="single-widget-area">
+                            <div class="widget-title">
+                                <h6>Categories</h6>
+                            </div>
+                            <ol class="crose-catagories">
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Religion</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Hope</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Donate</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Church</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Event</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Children</a></li>
+                            </ol>
+                        </div>
+
+                        <div class="single-widget-area">
+                            <div class="widget-title">
+                                <h6>Recent News</h6>
+                            </div>
+
+                            <div class="single-latest-post">
+                                <a href="#" class="post-title">
+                                    <h6>Weekly meeting in companies Think Room</h6>
+                                </a>
+                                <p class="post-date">November 11, 2017</p>
+                            </div>
+
+                            <div class="single-latest-post">
+                                <a href="#" class="post-title">
+                                    <h6>Six important methods to keep servers safe</h6>
+                                </a>
+                                <p class="post-date">November 11, 2017</p>
+                            </div>
+
+                            <div class="single-latest-post">
+                                <a href="#" class="post-title">
+                                    <h6>New management method which rocks</h6>
+                                </a>
+                                <p class="post-date">November 11, 2017</p>
+                            </div>
+
+                            <div class="single-latest-post">
+                                <a href="#" class="post-title">
+                                    <h6>Seven ways to get ready for a business contract</h6>
+                                </a>
+                                <p class="post-date">November 11, 2017</p>
+                            </div>
+                        </div>
+
+                        <div class="single-widget-area">
+                            <div class="widget-title">
+                                <h6>Archives</h6>
+                            </div>
+                            <ol class="crose-archives">
+                                <li><a href="#">July 2015</a></li>
+                                <li><a href="#">March 2015</a></li>
+                            </ol>
+                        </div>
+
+                        <div class="single-widget-area">
+                            <div class="widget-title">
+                                <h6>popular tags</h6>
+                            </div>
+                            <ol class="popular-tags d-flex flex-wrap">
+                                <li><a href="#">Sermons</a></li>
+                                <li><a href="#">Cross</a></li>
+                                <li><a href="#">Pray</a></li>
+                                <li><a href="#">Holly Cross</a></li>
+                                <li><a href="#">Event</a></li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+      <%- include('../partials/footer') %>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <%- include('../partials/scripts') %>
+</body>
+
+</html>

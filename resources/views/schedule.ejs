@@ -1,64 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('../partials/head', {title: 'Сторінка про нас'}); %>
+    <link rel="stylesheet" href="/static/schedule.css" />
+  </head>
 
-<head>
-  <%- include('../partials/head', {title: 'Сторінка про нас'}); %>
-</head>
-
-<body>
-  <!-- ##### Preloader ##### -->
-  <div class="preloader d-flex align-items-center justify-content-center">
-    <!-- Line -->
-    <div class="line-preloader"></div>
-  </div>
-
-  <!-- ##### Header Area Start ##### -->
-  <header class="header-area">
-    <%- include('../partials/header') %>
-  </header>
-  <!-- ##### Header Area End ##### -->
-
-  <!-- ##### Breadcrumb Area Start ##### -->
-  <div class="breadcrumb-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="/">Головна</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Розкклад служінь</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
+  <body>
+    <!-- ##### Preloader ##### -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+      <!-- Line -->
+      <div class="line-preloader"></div>
     </div>
-  </div>
-  <!-- ##### Breadcrumb Area End ##### -->
 
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+      <%- include('../partials/header') %>
+    </header>
+    <!-- ##### Header Area End ##### -->
 
-  <!-- ##### About Us Area Start ##### -->
-  <div class="about-us-area about-page section-padding-100">
-    <div class="container">
-      <div class="row about-content justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="about-us-content mb-100">
-            <img src="static/img/bg-img/rozklad-slyzin.png" alt="">
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Головна</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Розкклад служінь
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- ##### About Us Area End ##### -->
+    <!-- ##### Breadcrumb Area End ##### -->
 
-  <!-- ##### Footer Area Start ##### -->
-  <footer class="footer-area">
-    <%- include('../partials/footer') %>
-  </footer>
-  <!-- ##### Footer Area End ##### -->
+    <div class="sdl-container">
+      <div class="sdl-calendar sdl-light">
+        <!-- <div class="calendar_header">
+          <h1 class="header_title">Welcome Back</h1>
+          <p class="header_copy">Calendar Plan</p>
+        </div> -->
+        <!-- <div class="calendar_plan">
+          <div class="cl_plan">
+            <div class="cl_title">Today</div>
+            <div class="cl_copy">22nd April 2018</div>
+            <div class="cl_add">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+        </div> -->
+        <div class="calendar_events">
+          <p class="ce_title">Вівторок</p>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">19:00</div>
+            <div class="ei_Copy">Молодіжне зібрання</div>
+          </div>
 
-  <%- include('../partials/scripts') %>
-</body>
+          <p class="ce_title">П`ятниця</p>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">19:00</div>
+            <div class="ei_Copy">Молитовне зібрання</div>
+          </div>
 
+          <p class="ce_title">Неділя</p>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">10:00</div>
+            <div class="ei_Copy">Ранкове зібрання</div>
+          </div>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">18:00</div>
+            <div class="ei_Copy">Вечірнє зібрання</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="calendar dark">
+        <div class="calendar_header">
+          <h1 class="header_title">Welcome Back</h1>
+          <p class="header_copy">Calendar Plan</p>
+        </div>
+        <div class="calendar_plan">
+          <div class="cl_plan">
+            <div class="cl_title">Today</div>
+            <div class="cl_copy">22nd April 2018</div>
+            <div class="cl_add">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+        </div>
+        <div class="calendar_events">
+          <p class="ce_title">Upcoming Events</p>
+          <div class="event_item">
+            <div class="ei_Dot dot_active"></div>
+            <div class="ei_Title">10:30 am</div>
+            <div class="ei_Copy">Monday briefing with the team</div>
+          </div>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">12:00 pm</div>
+            <div class="ei_Copy">Lunch for with the besties</div>
+          </div>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">13:00 pm</div>
+            <div class="ei_Copy">
+              Meet with the client for final design <br />
+              @foofinder
+            </div>
+          </div>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">14:30 am</div>
+            <div class="ei_Copy">Plan event night to inspire students</div>
+          </div>
+          <div class="event_item">
+            <div class="ei_Dot"></div>
+            <div class="ei_Title">15:30 am</div>
+            <div class="ei_Copy">Add some more events to the calendar</div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+      <%- include('../partials/footer') %>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <%- include('../partials/scripts') %>
+  </body>
 </html>
