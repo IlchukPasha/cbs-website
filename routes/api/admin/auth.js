@@ -3,6 +3,7 @@ const validate = require('./../../../core/Validator');
 const { SingleError } = require('./../../../core/exceptions');
 const { User } = require('./../../../models');
 const { JwtManager } = require('./../../../services');
+const { app: { roles } } = require('./../../../core/config');
 
 const router = new Router({ prefix: '/api/admin' });
 
@@ -14,7 +15,7 @@ const handler = {
     });
     const { email, password } = ctx.request.body;
 
-    const user = await User.query().first().where({ email: email.toLowerCase() });
+    const user = await User.query().first().where({ email: email.toLowerCase(), role: roles.admin });
     if (!user) {
       throw new SingleError('No user with this email');
     }
