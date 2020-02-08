@@ -16,7 +16,7 @@ exports.up = async knex => {
     t.string('title', 100).notNullable();
     t.string('subject', 100).notNullable().comment('It is a sermon theme');
     t.string('speaker', 100).notNullable().comment('Speaker name');
-    t.text('description').notNullable();
+    t.text('text').notNullable();
     t.date('date').notNullable();
     t.timestamp('createdAt').nullable().defaultTo(null);
     t.timestamp('updatedAt').nullable().defaultTo(null);

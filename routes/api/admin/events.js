@@ -24,9 +24,9 @@ const handler = {
   },
   async create(ctx) {
     await validate(ctx.request.body, {
-      title: 'required|string|min:1|max:100',
-      address: 'required|string|min:1|max:255',
-      shortDescription: 'required|string|min:1|max:150',
+      title: 'required|string|min:3|max:50',
+      address: 'required|string|min:3|max:150',
+      shortDescription: 'required|string|min:5|max:150',
       description: 'required|string|min:10|max:5000',
       date: 'required|regex:/^\\d{4}-\\d{2}-\\d{2}$/|date',
       startedAt: 'required|regex:/^\\d{2}:\\d{2}$/',

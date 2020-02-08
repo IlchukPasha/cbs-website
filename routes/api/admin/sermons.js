@@ -24,9 +24,9 @@ const handler = {
   },
   async create(ctx) {
     await validate(ctx.request.body, {
-      title: 'required|string|min:1|max:100',
-      subject: 'required|string|min:1|max:100',
-      speaker: 'required|string|min:1|max:100',
+      title: 'required|string|min:3|max:50',
+      subject: 'required|string|min:3|max:50',
+      speaker: 'required|string|min:3|max:50',
       text: 'required|string|min:10|max:30000',
       date: 'required|regex:/^\\d{4}-\\d{2}-\\d{2}$/|date'
     });
@@ -37,7 +37,7 @@ const handler = {
 
     const sermon = await Sermon
       .query()
-      .insert({ title, subject, speaker, description: text, date });
+      .insert({ title, subject, speaker, text, date });
 
     ctx.status = 201;
     ctx.body = sermon;
