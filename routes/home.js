@@ -3,7 +3,7 @@ const { capitalize, range } = require('lodash');
 const { format } = require('date-fns');
 const { uk } = require('date-fns/locale');
 
-const { formatEventTime, formatEventDate, escapeHtml } = require('./../core/helper');
+const { formatEventTime, formatEventDate } = require('./../core/helper');
 const { Event, Sermon } = require('./../models');
 
 const router = new Router();
@@ -90,9 +90,8 @@ const handler = {
     }
 
     sermon.date = `${format(sermon.date, 'd MMM y', { locale: uk })}`;
-    // sermon.description = escapeHtml(sermon.description);
 
-    await ctx.render('sermon', { sermon, lastEvents, escapeHtml });
+    await ctx.render('sermon', { sermon, lastEvents });
   },
   async schedulePage(ctx) {
     const { lastEvents } = ctx.state;
