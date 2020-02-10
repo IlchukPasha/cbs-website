@@ -3,6 +3,7 @@ require('./.env.validate.js');
 const Koa = require('koa');
 const koaJson = require('koa-json');
 const koaBody = require('koa-bodyparser');
+const cors = require('koa2-cors');
 const render = require('koa-ejs');
 const serve = require('koa-static');
 const mount = require('koa-mount');
@@ -11,6 +12,7 @@ const path = require('path');
 require('./core/db');
 
 const app = new Koa();
+app.use(cors());
 app.use(koaJson({ pretty: false }));
 app.use(koaBody({ enableTypes: ['json', 'form'] }));
 render(app, {

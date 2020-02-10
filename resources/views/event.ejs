@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <%- include('../partials/head', {title: 'Сторінка події'}); %>
+    <%- include('../partials/head', {title: 'Сторінка події'}); %>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-      <%- include('../partials/header') %>
+        <%- include('../partials/header') %>
     </header>
     <!-- ##### Header Area End ##### -->
 
@@ -47,11 +47,13 @@
                         <!-- Sermons Details Area -->
                         <div class="single-post-details-area">
                             <div class="post-content">
-                                <h2 class="post-title mb-30"><%= event.title %></h2>
+                                <h2 class="post-title mb-30">
+                                    <%= event.title %>
+                                </h2>
                                 <img class="mb-30" src="/static/img/bg-img/event-main.jpg" alt="">
                                 <!-- Catagory & Share -->
                                 <!-- <div class="catagory-share-meta d-flex flex-wrap justify-content-between align-items-center"> -->
-                                    <!-- <div class="sermons-cata">
+                                <!-- <div class="sermons-cata">
                                         <a href="#" data-toggle="tooltip" data-placement="top" title="Video"><i class="fa fa-video-camera"
                                                 aria-hidden="true"></i></a>
                                         <a href="#" data-toggle="tooltip" data-placement="top" title="Audio"><i class="fa fa-headphones"
@@ -61,8 +63,8 @@
                                         <a href="#" data-toggle="tooltip" data-placement="top" title="Download"><i
                                                 class="fa fa-cloud-download" aria-hidden="true"></i></a>
                                     </div> -->
-                                    <!-- Share -->
-                                    <!-- <div class="share">
+                                <!-- Share -->
+                                <!-- <div class="share">
                                         <span>Share:</span>
                                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                         <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -244,7 +246,7 @@
 
                     </div>
                 </div> -->
-                
+
             </div>
         </div>
     </div>
@@ -252,7 +254,7 @@
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
-      <%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>
     </footer>
     <!-- ##### Footer Area End ##### -->
 

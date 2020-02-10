@@ -21,5 +21,10 @@ module.exports = {
     return text.replace(/[&<>"']/g, function(m) {
       return map[m];
     });
+  },
+  excapeScript(text) {
+    return text
+      .replace(/<script[^>]*>/gi, "&lt;script&gt;")
+      .replace(/<\/script[^>]*>/gi, "&lt;/script&gt;");
   }
 };

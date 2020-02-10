@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const validate = require('./../../../core/Validator');
 const { Event } = require('./../../../models');
 const { authenticated } = require('./../../../middlewares');
+const { excapeScript } = require('./../../../core/helper');
 
 const router = new Router({ prefix: '/api/admin/events' });
 
@@ -37,9 +38,11 @@ const handler = {
       title, address, shortDescription, description, date, startedAt, finishedAt
     } = ctx.request.body;
 
+    var escapedDescription = excapeScript(description);
+
     const sermon = await Event
       .query()
-      .insert({ title, address, shortDescription, description, date, startedAt, finishedAt });
+      .insert({ title, address, shortDescription, description: escapedDescription, date, startedAt, finishedAt });
 
     ctx.status = 201;
     ctx.body = sermon;
